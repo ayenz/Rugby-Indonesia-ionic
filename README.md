@@ -3,7 +3,7 @@ Menggunakan framework ionic versi 2. Jangan samain framework versi 1 karena uda 
 
 ## Setup Project
 
-Download zip project: //
+Download zip project: http://xxx.xxx.xxx/
 Install terlebih dahulu ionic
 ```
 npm install -g cordova ionic
