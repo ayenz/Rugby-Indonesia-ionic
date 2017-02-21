@@ -3,12 +3,56 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Rugby Clubs</ion-title>
+    <ion-title>Persatuan Rugby Union Indonesia</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <div class="card-background-page">
+    <img class="subheader" src="assets/img/test2.jpg"/>
+    <div class="toolbar-title">RUGBY CLUBS</div>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-33>
+        <ion-card>
+        </ion-card>
+      </ion-col>
+      <ion-col width-66>
+        <ion-card>
+          <ion-card-header>
+            <b>Bali Ruby Club</b>
+          </ion-card-header>
+          <ion-card-content>
+            Location and Training:
+            <p>BIS Sanur on Thursday 05.00PM
+            <p>Werbsite: www.balirugbyclub.com
+            Contact:kurtlovell@yahoo.com.au
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>
+        <ion-card>
+        </ion-card>
+      </ion-col>
+      <ion-col width-66>
+        <ion-card>
+          <ion-card-header>
+            <b>Bandung Rams Rugby Club</b>
+          </ion-card-header>
+          <ion-card-content>
+            Location and Training:
+            <p>Lapangan Gasibu on Tuesday 06.00 - 07.00PM
+            <p>Lapangan Gasibu on Thursday 07.00 - 07.00PM
+            <p>Lapangan Polman/Gasibu on Wednesday 06.00 - 08.00PM
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--<ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-left></ion-icon>
       {{item.title}}
@@ -19,5 +63,5 @@
   </ion-list>
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+  </div>-->
 </ion-content>
