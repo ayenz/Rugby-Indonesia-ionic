@@ -23,34 +23,28 @@
   <div class="image-card">
     <img src="assets/img/sub-header-news.png" width="100%">
   </div>
-  <ion-card>
 
-    <img src="assets/img/test.jpg"/>
 
-    <ion-card-content>
-      <ion-card-title>
-        About D.VA
-      </ion-card-title>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-left>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
-  <ion-card>
     <ion-item *ngFor="let post of posts">
+      <ion-card>
       <img [src]="post.img" />
+      <ion-card-content>
+        <ion-card-title>
+          {{post.title}}
+        </ion-card-title>
+        <p>
+          {{post.summary}}
+        </p>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" icon-left>
+            <ion-icon name='share-alt'></ion-icon>
+            Share
+          </button>
+        </ion-col>
+      </ion-row>
+        </ion-card>
     </ion-item>
-  </ion-card>
+
 </ion-content>
