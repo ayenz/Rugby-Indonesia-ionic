@@ -13,9 +13,9 @@ export class News {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-
-  constructor(public http: Http) {
-  this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/news/list.json')
-          .subscribe(res => this.posts = res.json());
+  
+  constructor(private http:Http) {
+    this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/news/list.json')
+            .subscribe(res => this.posts = res.json());
   }
 }
