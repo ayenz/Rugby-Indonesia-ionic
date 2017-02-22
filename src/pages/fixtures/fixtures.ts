@@ -13,7 +13,7 @@ export class Fixtures {
   items: Array<{title: string, note: string, icon: string}>;
 
   constructor(public http: Http) {
-    this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/fixtures/lista.json/').map((res:Response) => res.json()).subscribe((data) => {
+    this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/fixtures/list.json/').map((res:Response) => res.json()).subscribe((data) => {
 		console.log(data);
 		this.posts = data;
 	})
