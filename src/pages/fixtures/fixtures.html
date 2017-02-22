@@ -10,7 +10,9 @@
 <ion-content>
   <ion-card>
     <ion-item *ngFor="let post of posts">
-      <img [src]="post.img" />
+	<a [href] ="post.url">
+		<img [src]="post.img"/>
+	</a>
     </ion-item>
   </ion-card>
 </ion-content>
