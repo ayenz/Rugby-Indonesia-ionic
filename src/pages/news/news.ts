@@ -16,6 +16,6 @@ export class News {
 
   constructor(public http: Http) {
   this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/news/list.json')
-          .subscribe(res => this.data = res.json());
+          .subscribe(res => this.posts = res.json());
   }
 }
