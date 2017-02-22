@@ -1,67 +1,57 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons start left>
+      <a href="localhost:8100">
+        <button ion-button icon-only color="royal" left>
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </a>
+    </ion-buttons>
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Persatuan Rugby Union Indonesia</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <div class="card-background-page">
-    <img class="subheader" src="assets/img/test2.jpg"/>
-    <div class="toolbar-title">RUGBY CLUBS</div>
+    <img src="assets/img/test2.jpg"/>
   </div>
   <ion-grid>
-    <ion-row>
-      <ion-col width-33>
-        <ion-card>
-        </ion-card>
+    <ion-row center>
+      <ion-card>
+      <ion-col width-25 style="float:left;">
+          <div>
+            <img class="img1" src="assets/img/Logo Universitas Parahyangan.png" height="100%"/>
+          </div>
       </ion-col>
-      <ion-col width-66>
-        <ion-card>
-          <ion-card-header>
-            <b>Bali Ruby Club</b>
-          </ion-card-header>
-          <ion-card-content>
-            Location and Training:
-            <p>BIS Sanur on Thursday 05.00PM
-            <p>Werbsite: www.balirugbyclub.com
-            Contact:kurtlovell@yahoo.com.au
-          </ion-card-content>
-        </ion-card>
+      <ion-col width-67 style="float:left;">
+        <div>
+          <b>Bali Ruby Club</b>
+          <p>Location and Training:
+          <p>BIS Sanur on Thursday 05.00PM
+          <p>Werbsite: www.balirugbyclub.com
+        </div>
       </ion-col>
+    </ion-card>
     </ion-row>
-    <ion-row>
-      <ion-col width-33>
-        <ion-card>
-        </ion-card>
+    <ion-row center>
+      <ion-card>
+      <ion-col width-25 style="float:left;">
+          <div>
+            <img class="img1" src="assets/img/Logo Universitas Parahyangan.png" height="100%"/>
+          </div>
       </ion-col>
-      <ion-col width-66>
-        <ion-card>
-          <ion-card-header>
-            <b>Bandung Rams Rugby Club</b>
-          </ion-card-header>
-          <ion-card-content>
-            Location and Training:
-            <p>Lapangan Gasibu on Tuesday 06.00 - 07.00PM
-            <p>Lapangan Gasibu on Thursday 07.00 - 07.00PM
-            <p>Lapangan Polman/Gasibu on Wednesday 06.00 - 08.00PM
-          </ion-card-content>
-        </ion-card>
+      <ion-col width-67 style="float:left;">
+        <div class="">
+          <b>Bandung Rams Rugby Club</b>
+          <p>Location and Training:
+          <p>Lapangan Gasibu on Tuesday 06.00 - 07.00PM
+          <p>Lapangan Gasibu on Thursday 07.00 - 07.00PM
+          <p>Lapangan Polman/Gasibu on Wednesday 06.00 - 08.00PM
+        </div>
       </ion-col>
+    </ion-card>
     </ion-row>
   </ion-grid>
-  <!--<ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>-->
 </ion-content>
