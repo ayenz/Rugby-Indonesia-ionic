@@ -32,7 +32,16 @@ $colors: (
 );
 
 $menu-width:200px;
-$toolbar-background: red;
+$toolbar-background: #ff3333;
+
+
+  .titleicon {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align:center;
+  }
 
 // App iOS Variables
 // --------------------------------------------------

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons start left>
-      <a href="localhost:8100">
+      <a href="http://localhost:8100/">
         <button ion-button icon-only color="royal" left>
           <ion-icon name="home"></ion-icon>
         </button>
@@ -9,7 +9,11 @@
     </ion-buttons>
 
     <div class="titleicon">
-         <img src="assets/img/logo-header.png" height="48px" />
+         <img src="assets/img/header.png" width="100%"/>
+    </div>
+
+    <div class="titleicon">
+         <img src="assets/img/logo-header.png" height="44px" />
     </div>
 
     <button ion-button menuToggle right>
@@ -19,14 +23,9 @@
 </ion-header>
 
 <ion-content>
-
-  <div class="image-card">
     <img src="assets/img/sub-header-news.png" width="100%">
-  </div>
 
-
-    <ion-item *ngFor="let post of posts">
-      <ion-card>
+      <ion-card *ngFor="let post of posts">
       <img [src]="post.img" />
       <ion-card-content>
         <ion-card-title>
@@ -36,15 +35,14 @@
           {{post.summary}}
         </p>
       </ion-card-content>
-      <ion-row no-padding>
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-left>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-        </ion-card>
-    </ion-item>
+        <ion-row no-padding>
+          <ion-col text-right>
+            <button ion-button clear small color="danger" icon-left>
+              <ion-icon name='share-alt'></ion-icon>
+              Share
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
 
 </ion-content>

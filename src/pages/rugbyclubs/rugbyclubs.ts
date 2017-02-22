@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-
+import {News} from '../news/news';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-rugbyclubs',
   templateUrl: 'rugbyclubs.html'
 })
+
 export class Rugbyclubs {
+  news=News;
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
