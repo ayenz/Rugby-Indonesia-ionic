@@ -9,12 +9,8 @@
 
 <ion-content>
   <ion-card>
-    <img src="assets/img/fixtures1.jpg"/>
-  </ion-card>
-  <ion-card>
-    <img src="assets/img/fixtures2.jpg"/>
-  </ion-card>
-  <ion-card>
-    <img src="assets/img/fixtures3.jpg"/>
+    <ion-item *ngFor="let post of posts">
+      <img [src]="post.img" />
+    </ion-item>
   </ion-card>
 </ion-content>
