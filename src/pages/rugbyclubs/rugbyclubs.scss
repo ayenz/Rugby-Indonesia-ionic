@@ -2,19 +2,15 @@ page-rugbyclubs {
 
 }
 .card-background-page {
-  ion-toolbar {
-    position: relative;
-    text-align: center;
-    width: 100%;
-    height: 20%;
-  }
+  width: 100%;
 
-  .toolbar-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
+  img{
     width: 100%;
-    font-weight: bold;
-    color: #fff;
   }
+}
+.kolom{
+  float: left;
+}
+.img1{
+  width:100px;
 }
