@@ -25,14 +25,15 @@
 <ion-content>
     <img src="assets/img/sub-header-news.png" width="100%">
 
-      <ion-card *ngFor="let post of posts">
-      <img [src]="post.img" />
+      <ion-card *ngFor="let jsonItem of jsonItems">
+      <img [src]="jsonItem.img" />
       <ion-card-content>
         <ion-card-title>
-          {{post.title}}
+          {{jsonItem.title}}
         </ion-card-title>
         <p>
-          {{post.summary}}
+          {{jsonItem.summary}}
+          <a [href]="jsonItem.url"><i>read more...</i></a>
         </p>
       </ion-card-content>
         <ion-row no-padding>
