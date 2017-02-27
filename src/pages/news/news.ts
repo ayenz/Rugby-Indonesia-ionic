@@ -14,10 +14,8 @@ export class News {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public http: Http) {
-
-    this.http.get('https://www.reddit.com/r/gifs/new/.json?limit=10').map(res => res.json()).subscribe(data => {
-        this.posts = data.data.children;
-    });
+  constructor(private http:Http) {
+    this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/news/list.json')
+            .subscribe(res => this.posts = res.json());
   }
 }
