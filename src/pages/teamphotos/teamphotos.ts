@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
 
+import { Component } from '@angular/core';
+import { AlertController } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
@@ -11,28 +12,29 @@ export class Teamphotos {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  constructor(public alerCtrl: AlertController) { }
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+  doConfirm() {
+   let confirm = this.alerCtrl.create({
+     title: 'Use this Camera?',
+     message: 'Do you agree to use this Camera to take a teammate photos ?',
+     buttons: [
+       {
+         text: 'Disagree',
+         handler: () => {
+           console.log('Disagree clicked');
+         }
+       },
+       {
+         text: 'Agree',
+         handler: () => {
+           console.log('Agree clicked');
+         }
+       }
+     ]
+   });
+   confirm.present()
+ }
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
-  }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(Teamphotos, {
-      item: item
-    });
-  }
 }
