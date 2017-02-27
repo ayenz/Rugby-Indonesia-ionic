@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
+import { Http } from '@angular/http';
+=======
 import {News} from '../news/news';
+>>>>>>> 37f42aed26a799887e80780603cc04c6e51750d8
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
@@ -8,6 +12,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 
 export class Rugbyclubs {
+<<<<<<< HEAD
+posts: any;
+selectedItem: any;
+icons: string[];
+items: Array<{title: string, note: string, icon: string}>;
+=======
   news=News;
   selectedItem: any;
   icons: string[];
@@ -30,11 +40,10 @@ export class Rugbyclubs {
       });
     }
   }
+>>>>>>> 37f42aed26a799887e80780603cc04c6e51750d8
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(Rugbyclubs, {
-      item: item
-    });
+  constructor(private http:Http) {
+  this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/clubs/list.json')
+          .subscribe(res => this.posts = res.json());
   }
 }
