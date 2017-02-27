@@ -16,7 +16,8 @@ export class Teamphotos {
 
   constructor(public alerCtrl: AlertController, private http:Http){
       this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
-              .map(res => res.json()).subscribe(data => this.jsonItems = data);
+              .subscribe(res => this.jsonItems = res.json());
+              console.log(this.jsonItems);
    }
 
   doConfirm() {

@@ -26,7 +26,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <button ion-button color="primary" block (click)="doConfirm()" class="button button-full button-positive" ion-button icon-only >
+        <button color="primary" (click)="doConfirm()" class="button button-full button-positive" ion-button icon-only >
           <ion-icon name="camera"></ion-icon>
           Take a Photos
         </button>
@@ -46,7 +46,7 @@
     <ion-row>
       <ion-col width-50>
         <ion-card>
-          <img [src]="jsonItems.data"/>
+          <img src="assets/img/test.jpg"/>
         </ion-card>
       </ion-col>
     </ion-row>
