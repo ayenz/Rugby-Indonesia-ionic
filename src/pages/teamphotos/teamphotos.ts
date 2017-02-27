@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'page-teamphotos',
@@ -11,8 +12,12 @@ export class Teamphotos {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
+  jsonItems: any;
 
-  constructor(public alerCtrl: AlertController) { }
+  constructor(public alerCtrl: AlertController, private http:Http){
+      this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
+              .map(res => res.json()).subscribe(data => this.jsonItems = data);
+   }
 
   doConfirm() {
     let confirm = this.alerCtrl.create({
@@ -35,6 +40,4 @@ export class Teamphotos {
     });
     confirm.present()
   }
-
-
 }

@@ -25,7 +25,6 @@
 
 <ion-content>
   <img src="assets/img/sub-header-news.png" width="100%">
-
   <ion-card *ngFor="let jsonItem of jsonItems">
     <img [src]="jsonItem.img" />
     <ion-card-content>
@@ -37,14 +36,6 @@
         <a [href]="jsonItem.url"><i>read more...</i></a>
       </p>
     </ion-card-content>
-    <!-- <ion-row no-padding>
-    <ion-col text-right>
-    <button ion-button clear small color="danger" icon-left>
-    <ion-icon name='share-alt'></ion-icon>
-    Share
-  </button>
-</ion-col>
-</ion-row> -->
 </ion-card>
 
 </ion-content>
