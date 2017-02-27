@@ -15,26 +15,26 @@ export class Teamphotos {
   constructor(public alerCtrl: AlertController) { }
 
   doConfirm() {
-   let confirm = this.alerCtrl.create({
-     title: 'Use this Camera?',
-     message: 'Do you agree to use this Camera to take a teammate photos ?',
-     buttons: [
-       {
-         text: 'Disagree',
-         handler: () => {
-           console.log('Disagree clicked');
-         }
-       },
-       {
-         text: 'Agree',
-         handler: () => {
-           console.log('Agree clicked');
-         }
-       }
-     ]
-   });
-   confirm.present()
- }
+    let confirm = this.alerCtrl.create({
+      title: 'Use this Camera?',
+      message: 'Do you agree to use this Camera to take a teammate photos ?',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present()
+  }
 
 
 }
