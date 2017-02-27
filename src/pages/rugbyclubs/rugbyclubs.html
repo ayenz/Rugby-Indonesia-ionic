@@ -18,40 +18,28 @@
     <img src="assets/img/test2.jpg"/>
   </div>
   <ion-grid>
-    <ion-row center>
-      <ion-card>
-      <ion-col width-25 style="float:left;">
-          <div>
-            <img class="img1" src="assets/img/Logo Universitas Parahyangan.png" height="100%"/>
-          </div>
-      </ion-col>
-      <ion-col width-67 style="float:left;">
-        <div>
-          <b>Bali Ruby Club</b>
-          <p>Location and Training:
-          <p>BIS Sanur on Thursday 05.00PM
-          <p>Werbsite: www.balirugbyclub.com
-        </div>
-      </ion-col>
-    </ion-card>
-    </ion-row>
-    <ion-row center>
-      <ion-card>
-      <ion-col width-25 style="float:left;">
-          <div>
-            <img class="img1" src="assets/img/Logo Universitas Parahyangan.png" height="100%"/>
-          </div>
-      </ion-col>
-      <ion-col width-67 style="float:left;">
-        <div class="">
-          <b>Bandung Rams Rugby Club</b>
-          <p>Location and Training:
-          <p>Lapangan Gasibu on Tuesday 06.00 - 07.00PM
-          <p>Lapangan Gasibu on Thursday 07.00 - 07.00PM
-          <p>Lapangan Polman/Gasibu on Wednesday 06.00 - 08.00PM
-        </div>
-      </ion-col>
-    </ion-card>
-    </ion-row>
+    <ion-item *ngFor="let post of posts">
+      <ion-row center>
+        <ion-card>
+          <ion-col width-25 style="float:left;">
+            <div>
+              <img [src]="post.img"/>
+            </div>
+          </ion-col>
+          <ion-col width-67 style="float:left;">
+            <div>
+              <b>{{post.name}}</b>
+              <p>Location and Training: <br>
+              {{post.location_training}} <br>
+            </p>
+            <p>
+              {{post.contacts[0].name}}: {{post.contacts[0].value}} <br>
+            </p>
+
+            </div>
+          </ion-col>
+        </ion-card>
+      </ion-row>
+    </ion-item>
   </ion-grid>
 </ion-content>
