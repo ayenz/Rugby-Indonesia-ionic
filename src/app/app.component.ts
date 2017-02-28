@@ -17,18 +17,18 @@ export class MyApp {
 
   rootPage: any = News;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'News', component: News },
-      { title: 'Fixtures & Results', component: Fixtures },
-      { title: 'Teammate Photos', component: Teamphotos },
-      { title: 'Rugby 101', component: Rugby101 },
-      { title: 'Rugby Clubs', component: Rugbyclubs }
+      { title: 'News', component: News , icon: 'paper'},
+      { title: 'Fixtures & Results', component: Fixtures, icon: 'clipboard' },
+      { title: 'Teammate Photos', component: Teamphotos, icon: 'image' },
+      { title: 'Rugby 101', component: Rugby101 , icon: 'football'},
+      { title: 'Rugby Clubs', component: Rugbyclubs , icon: 'people'}
     ];
 
   }

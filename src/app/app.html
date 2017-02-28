@@ -1,12 +1,74 @@
 <ion-menu side="right" [content]="content">
 
-  <ion-content>
+  <ion-content class="redBackground">
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" end>
-        {{p.title}}
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" end class="red">
+        <ion-icon [name]="p.icon"></ion-icon> &nbsp;  &nbsp;{{p.title}}
       </button>
-
     </ion-list>
+
+    <p class="contactCSS" padding-left padding-right >
+        Contacts: <br>
+        info@rugbyindonesia.or.id <br>
+        www.rugbyindonesia.or.id <br>
+        <br>
+        Connect with us: <br>
+
+        <ion-grid>
+          <ion-row class="icons">
+            <ion-col width-33>
+              <a href="https://twitter.com/IndonesianRugby" style="color: white"><ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon></a>
+            </ion-col>
+            <ion-col width-33>
+              <a href="https://www.facebook.com/indonesianrugby" style="color: white"><ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon></a>
+            </ion-col>
+            <ion-col width-33>
+              <a href="https://vine.co/u/1035182837801902080" style="color: white"><ion-icon ios="logo-vimeo" md="logo-vimeo"></ion-icon></a>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="icons">
+            <ion-col width-33>
+              <a href="https://plus.google.com/102268870932403946446/posts" style="color: white"><ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon></a>
+            </ion-col>
+            <ion-col width-33>
+              <a href="https://www.youtube.com/user/Indonesiarugby" style="color: white"><ion-icon ios="logo-youtube" md="logo-youtube"></ion-icon></a>
+            </ion-col>
+            <ion-col width-33>
+              <a href="https://www.instagram.com/indonesianrugby/" style="color: white"><ion-icon ios="logo-instagram" md="logo-instagram"></ion-icon></a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <br>
+        Affiliations <br>
+
+        <ion-grid>
+          <ion-row class="iconsO">
+            <ion-col width-50>
+              <a href="http://www.worldrugby.org/" style="color: white"><img src="assets/img/affiliate-worldrugby.png" alt="" width="100%"></a>
+            </ion-col>
+            <ion-col width-50>
+              <a href="https://www.asiarugby.com/" style="color: white"><img src="assets/img/affiliate-arfu.png" alt="" width="100%"></a>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="iconsO">
+            <ion-col width-50>
+              <a href="http://www.koni.or.id/index.php/id/" style="color: white"><img src="assets/img/affiliate-koni.png" width="100%"></a>
+            </ion-col>
+            <ion-col width-50>
+              <a href="http://www.nocindonesia.or.id/" style="color: white"><img src="assets/img/affiliate-nocindonesia.png" width="100%"></a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        © 2016 Persatuan Rugby Union Indonesia <br>
+        <br>
+        Powered By Lorem Ipsum <br>
+        <img src="assets/img/sponsor.png" width="100%"><br>
+        Developed By DNArtworks.co.id
+    </p>
   </ion-content>
 
 </ion-menu>

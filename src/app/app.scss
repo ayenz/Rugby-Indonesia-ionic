@@ -15,5 +15,41 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 ion-header {
-  
+
+}
+
+.redBackground{
+
+  background-color: #ff3333 !important;
+  color: white;
+}
+
+.red{
+  font-size: 12px;
+  background-color: #ff3333 !important;
+  color: white;
+}
+
+.red:hover{
+  background-color: white !important;
+  color: black;
+}
+
+.contactCSS{
+  align-content: center;
+  background-color: #ff3333 !important;
+  color: white;
+  font-size: 12px;
+}
+
+.icons{
+  font-size: 22px;
+  //text-decoration: none;
+  color: white;
+}
+
+.iconsO{
+  font-size: 14px;
+  //text-decoration: none;
+  color: white;
 }
