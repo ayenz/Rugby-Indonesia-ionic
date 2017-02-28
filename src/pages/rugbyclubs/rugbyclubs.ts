@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {News} from '../news/news';
-import { NavController, NavParams } from 'ionic-angular';
 import {Http } from '@angular/http';
 
 @Component({

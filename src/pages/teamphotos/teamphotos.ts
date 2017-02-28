@@ -1,6 +1,6 @@
+
 import { Component } from '@angular/core';
 import { AlertController } from 'ionic-angular';
-import { NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Camera } from 'ionic-native';
 
