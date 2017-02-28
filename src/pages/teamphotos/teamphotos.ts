@@ -17,7 +17,7 @@ export class Teamphotos {
   doConfirm() {
    let confirm = this.alerCtrl.create({
      title: 'Use this Camera?',
-     message: 'Do you agree to use this Camera to take a teammate photos ?',
+     message: 'Do you agree to use this Camera to take a teammate photos?',
      buttons: [
        {
          text: 'Disagree',
