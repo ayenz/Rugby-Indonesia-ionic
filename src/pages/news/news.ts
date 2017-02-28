@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-//import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-news',
