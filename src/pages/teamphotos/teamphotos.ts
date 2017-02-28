@@ -55,4 +55,33 @@ export class Teamphotos {
     });
     confirm.present()
   }
+
+
+  useGallery() {
+
+    let confirm = this.alerCtrl.create({
+      title: 'upload from galery?',
+      message: 'Do you agree to use galery to upload your photos?',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            //  console.log('Agree clicked
+          }
+          }
+      ]
+    });
+    confirm.present()
+  }
+
+
+
+
+
 }
