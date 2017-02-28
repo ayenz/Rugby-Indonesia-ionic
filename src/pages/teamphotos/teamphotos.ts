@@ -38,9 +38,12 @@ export class Teamphotos {
           handler: () => {
             //  console.log('Agree clicked
             Camera.getPicture({
-              destinationType: Camera.DestinationType.DATA_URL,
+              quality: 50,
+              destinationType: Camera.DestinationType.FILE_URI,
+          sourceType: Camera.PictureSourceType.CAMERA,
               targetWidth: 800,
-              targetHeight: 800
+              targetHeight: 800,
+              saveToPhotoAlbum: true
             }).then((imageData) => {
               // imageData is either a base64 encoded string or a file URI
               // If it's base64:
@@ -71,7 +74,9 @@ export class Teamphotos {
           text: 'Agree',
           handler: () => {
             Camera.getPicture({
-              destinationType: Camera.PictureSourceType.PHOTOLIBRARY,
+              quality: 50,
+              			destinationType: Camera.DestinationType.FILE_URI,
+              			sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
               targetWidth: 800,
               targetHeight: 800
             }).then((imageData) => {
