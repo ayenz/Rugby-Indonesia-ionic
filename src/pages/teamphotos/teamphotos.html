@@ -18,7 +18,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
-  </ion-navbar>
+  </ion-navbar>	
 </ion-header>
 
 <ion-content>
@@ -45,10 +45,11 @@
     <!-- Pull Content Image -->
     <ion-row>
       <ion-col width-50>
-        <ion-card>
-          <img src="assets/img/test.jpg"/>
-          {{jsonItems}}
-        </ion-card>
+        <ion-card *ngFor="let post of jsonItems?.data">
+		<ion-item>
+			<img [src]="post"/>
+		</ion-item>
+	</ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
