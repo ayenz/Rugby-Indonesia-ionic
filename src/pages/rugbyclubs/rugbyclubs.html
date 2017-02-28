@@ -25,8 +25,7 @@
 <ion-content>
   <img src="assets/img/sub-header-clubs.png" width="100%">
   <ion-grid>
-    <ion-item *ngFor="let post of posts">
-      <ion-row center>
+      <ion-row center *ngFor="let post of posts">
         <ion-card>
           <ion-col width-25 style="float:left;">
             <div>
@@ -37,16 +36,14 @@
             <div>
               <b>{{post.name}}</b>
               <p>Location and Training: <br>
-              {{post.location_training}} <br>
-            </p>
+                <p *ngFor="let location of post.location_training">
+                - {{location}}<br></p>
             <p>
               {{post.contacts[0].name}}: {{post.contacts[0].value}} <br>
             </p>
-
             </div>
           </ion-col>
         </ion-card>
       </ion-row>
-    </ion-item>
   </ion-grid>
 </ion-content>
