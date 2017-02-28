@@ -24,12 +24,11 @@
 
 <ion-content>
   <img src="assets/img/sub-header-fixture.png" width="100%">
-
-  <ion-card>
-    <ion-item *ngFor="let post of posts">
-	<a [href] ="post.url">
-		<img [src]="post.img"/>
-	</a>
-    </ion-item>
-  </ion-card>
+    <ion-card *ngFor="let post of posts">
+		<ion-item>
+			<a [href] ="post.url">
+			<img [src]="post.img"/>
+			</a>
+		</ion-item>
+	</ion-card>
 </ion-content>
