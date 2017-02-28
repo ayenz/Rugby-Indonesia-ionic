@@ -23,7 +23,6 @@ export class Teamphotos {
   }
 
   doConfirm() {
-
     let confirm = this.alerCtrl.create({
       title: 'Use this Camera?',
       message: 'Do you agree to use this Camera to take a teammate photos?',
@@ -40,8 +39,8 @@ export class Teamphotos {
             //  console.log('Agree clicked
             Camera.getPicture({
               destinationType: Camera.DestinationType.DATA_URL,
-              targetWidth: 1000,
-              targetHeight: 1000
+              targetWidth: 800,
+              targetHeight: 800
             }).then((imageData) => {
               // imageData is either a base64 encoded string or a file URI
               // If it's base64:
@@ -58,10 +57,9 @@ export class Teamphotos {
 
 
   useGallery() {
-
     let confirm = this.alerCtrl.create({
-      title: 'upload from galery?',
-      message: 'Do you agree to use galery to upload your photos?',
+      title: 'Upload from gallery?',
+      message: 'Do you agree to use gallery to upload your photos?',
       buttons: [
         {
           text: 'Disagree',
@@ -72,16 +70,19 @@ export class Teamphotos {
         {
           text: 'Agree',
           handler: () => {
-            //  console.log('Agree clicked
+            Camera.getPicture({
+              destinationType: Camera.PictureSourceType.PHOTOLIBRARY,
+              targetWidth: 800,
+              targetHeight: 800
+            }).then((imageData) => {
+              this.base64Image = 'data:image/jpeg;base64,' + imageData;
+            }, (err) => {
+              console.log(err);
+            });
           }
           }
       ]
     });
     confirm.present()
   }
-
-
-
-
-
 }
