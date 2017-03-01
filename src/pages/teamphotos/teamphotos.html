@@ -18,7 +18,7 @@
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
-  </ion-navbar>	
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
@@ -26,7 +26,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <button color="secondary" (click)="doConfirm()" class="button button-full button-positive" ion-button icon-only >
+        <button color="secondary" (click)="openCamera()" class="button button-full button-positive" ion-button icon-only >
           <ion-icon name="camera"></ion-icon>
           Take a Photos
         </button>
@@ -46,10 +46,10 @@
     <ion-row>
       <ion-col width-50>
         <ion-card *ngFor="let post of jsonItems?.data">
-		<ion-item>
-			<img [src]="post"/>
-		</ion-item>
-	</ion-card>
+		      <ion-item>
+			      <img [src]="post"/>
+		      </ion-item>
+	      </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
