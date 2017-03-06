@@ -18,3 +18,20 @@ npm rebuild node-sass
 ```
 ionic serve
 ```
+
+## Running Project on Android Device
+
+1. Add platform android at project folder
+```
+$ cordova platform add android
+```
+
+2. Add ionic plugin to project folder
+```
+$ ionic plugin add cordova-plugin-camera
+```
+
+3. Run on android device
+```
+$ cordova run android --device
+```
