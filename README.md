@@ -29,6 +29,9 @@ $ cordova platform add android
 2. Add ionic plugin to project folder
 ```
 $ ionic plugin add cordova-plugin-camera
+$ ionic plugin add cordova-plugin-file
+$ ionic plugin add cordova-plugin-file-transfer
+$ ionic plugin add cordova-plugin-filepath
 ```
 
 3. Run on android device
