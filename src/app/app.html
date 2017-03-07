@@ -1,5 +1,27 @@
-<ion-menu side="right" [content]="content">
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start left>
+        <button ion-button icon-only color="royal" left (click)="home()">
+          <ion-icon name="home"></ion-icon>
+        </button>
+    </ion-buttons>
 
+    <div class="titleicon">
+
+      <img src="assets/img/header.png" width="100%" height="100%"/>
+    </div>
+
+    <div class="titleicon">
+      <img src="assets/img/logo-header.png" height="44px">
+    </div>
+
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-menu side="right" [content]="content">
   <ion-content class="redBackground">
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" end class="red">
