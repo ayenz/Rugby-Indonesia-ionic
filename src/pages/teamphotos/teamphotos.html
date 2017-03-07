@@ -1,23 +1,5 @@
 <ion-header>
   <ion-navbar>
-    <ion-buttons start left>
-      <a href="../news/news.html">
-        <button ion-button icon-only color="royal" left>
-          <ion-icon name="home"></ion-icon>
-        </button>
-      </a>
-    </ion-buttons>
-    <div class="titleicon">
-      <img src="assets/img/header.png" width="100%"/>
-    </div>
-
-    <div class="titleicon">
-      <img src="assets/img/logo-header.png" height="44px" />
-    </div>
-
-    <button ion-button menuToggle right>
-      <ion-icon name="menu"></ion-icon>
-    </button>
   </ion-navbar>
 </ion-header>
 
@@ -44,11 +26,9 @@
 
     <!-- Pull Content Image -->
     <ion-row>
-      <ion-col width-50>
-        <ion-card *ngFor="let post of jsonItems?.data">
-		      <ion-item>
-			      <img [src]="post"/>
-		      </ion-item>
+      <ion-col width-50 *ngFor="let post of jsonItems?.data">
+        <ion-card>
+			     <img [src]="post"/>
 	      </ion-card>
       </ion-col>
     </ion-row>
