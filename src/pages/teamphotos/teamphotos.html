@@ -1,4 +1,4 @@
-<ion-header>
+.<ion-header>
   <ion-navbar>
   </ion-navbar>
 </ion-header>
@@ -24,11 +24,14 @@
       </ion-col>
     </ion-row>
 
+
     <!-- Pull Content Image -->
-    <ion-row>
-      <ion-col width-50>
-        <ion-card *ngFor="let post of jsonItems?.data">
-			     <img [src]="post"/>
+    <ion-row wrap>
+      <ion-col width-50 *ngFor="let post of jsonItems?.data">
+        <ion-card>
+		      <ion-item>
+			      <img [src]="post"/>
+		      </ion-item>
 	      </ion-card>
       </ion-col>
     </ion-row>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-
+declare var cordova:any;
 @Component({
   selector: 'page-fixtures',
   templateUrl: 'fixtures.html'
@@ -18,5 +18,10 @@ export class Fixtures {
 		this.posts = data;
 	})
 	//console.log(post[1]);
+  }
+
+  GoToLink(url){
+  cordova.InAppBrowser.open(url, '_blank', "location=true");
+  cordova.InAppBrowser.show();
   }
 }

@@ -6,6 +6,7 @@ import { Fixtures } from '../pages/fixtures/fixtures';
 import { Teamphotos } from '../pages/teamphotos/teamphotos';
 import { Rugby101 } from '../pages/rugby101/rugby101';
 import { Rugbyclubs } from '../pages/rugbyclubs/rugbyclubs';
+import {Editphotos} from '../pages/editphotos/editphotos';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { Rugbyclubs } from '../pages/rugbyclubs/rugbyclubs';
     Fixtures,
     Teamphotos,
     Rugby101,
-    Rugbyclubs
+    Rugbyclubs,
+    Editphotos
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import { Rugbyclubs } from '../pages/rugbyclubs/rugbyclubs';
     Fixtures,
     Teamphotos,
     Rugby101,
-    Rugbyclubs
+    Rugbyclubs,
+    Editphotos
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
