@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/img/sub-header-photo.png" width="100%">
+  <ion-item><canvas #myCanvas class="myCanvas" width="400" height="400"></canvas></ion-item>
+
+    <ion-grid>
+
+        <ion-row>
+            <ion-col>
+              <img src="assets/img/frame01.png" alt="" (click)="selectFrame('frame01')">
+            </ion-col>
+            <ion-col>
+                <img src="assets/img/frame02.png" alt="" (click)="selectFrame('frame02')">
+            </ion-col>
+            <ion-col>
+                <img src="assets/img/frame03.png" alt="" (click)="selectFrame('frame03')">
+            </ion-col>
+            <ion-col>
+                <img src="assets/img/frame04.png" alt="" (click)="selectFrame('frame04')">
+            </ion-col>
+            <ion-col>
+                <img src="assets/img/frame05.png" alt="" (click)="selectFrame('frame05')">
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col>
+            <img src="assets/img/frame06.png" alt="" (click)="selectFrame('frame06')">
+          </ion-col>
+          <ion-col>
+            <img src="assets/img/frame07.png" alt="" (click)="selectFrame('frame07')">
+          </ion-col>
+          <ion-col>
+            <img src="assets/img/frame08.png" alt="" (click)="selectFrame('frame08')">
+          </ion-col>
+          <ion-col>
+            <img src="assets/img/frame09.png" alt="" (click)="selectFrame('frame09')">
+          </ion-col>
+          <ion-col>
+            <img src="assets/img/frame10.png" alt="" (click)="selectFrame('frame10')">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <button (click)="uploadImage()" color ="secondary"  class="button button-full button-positive" ion-button icon-only>
+              <ion-icon name="cloud-upload"></ion-icon>
+            Submit
+            </button>
+        </ion-row>
+        <ion-row>
+            <button color ="secondary"  class="button button-full button-positive" ion-button icon-only>
+              <ion-icon name="share"></ion-icon>
+              Share
+            </button>
+        </ion-row>
+    </ion-grid>
+</ion-content>

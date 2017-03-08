@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
-import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading } from 'ionic-angular';
+import { AlertController, NavController, ToastController, LoadingController, Loading, Nav } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Camera, File, Transfer, FilePath } from 'ionic-native';
+import { Editphotos } from '../editphotos/editphotos';
 
 declare var cordova:any;
 @Component({
@@ -10,6 +10,7 @@ declare var cordova:any;
   templateUrl: 'teamphotos.html'
 })
 export class Teamphotos {
+
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
@@ -18,14 +19,20 @@ export class Teamphotos {
   lastImage: string = null;
   loading: Loading;
   path:string = null;
-
+  htt:any;
   public base64Image:string;
+  json:any;
+  navi:any;
 
-  constructor(public alerCtrl: AlertController, public http:Http, public toastCtrl:ToastController){
+  constructor(public alerCtrl: AlertController, public http:Http, public toastCtrl:ToastController, public loadingCtrl:LoadingController, public navCtrl:NavController, public nav:Nav){
+    this.navi = nav;
+    this.htt = http;
     this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
     .subscribe(res => this.jsonItems = res.json());
     console.log(this.jsonItems);
   }
+
+
 
   openCamera() {
   console.log(cordova.file);
@@ -45,17 +52,20 @@ export class Teamphotos {
             //  console.log('Agree clicked
             Camera.getPicture({
               quality: 50,
-              destinationType: Camera.DestinationType.FILE_URI,
+              destinationType: Camera.DestinationType.DATA_URL,
               sourceType: Camera.PictureSourceType.CAMERA,
-              targetWidth: 800,
-              targetHeight: 800,
-              saveToPhotoAlbum: true
+              encodingType: Camera.EncodingType.JPEG,
+              targetWidth: 400,
+              targetHeight: 400,
+              saveToPhotoAlbum: true,
+              correctOrientation:true
             }).then((imageData) => {
               // imageData is either a base64 encoded string or a file URI
               // If it's base64:
-              this.base64Image = 'data:image/png;base64,' + imageData;
+              this.base64Image = 'data:image/jpeg;base64,' + imageData;
               this.lastImage = this.base64Image;
-              this.uploadImage();
+              this.navCtrl.push(Editphotos, {base64: this.lastImage});
+              //this.uploadImage();
             }, (err) => {
               console.log(err);
             });
@@ -65,7 +75,6 @@ export class Teamphotos {
     });
     confirm.present()
   }
-
 
   useGallery() {
     let confirm = this.alerCtrl.create({
@@ -89,6 +98,8 @@ export class Teamphotos {
               targetHeight: 800
             }).then((imageData) => {
               this.base64Image = 'data:image/png;base64,' + imageData;
+              this.lastImage = cordova.file.dataDirectory + this.base64Image;
+              this.navCtrl.push(Editphotos, {base64: this.lastImage});
             }, (err) => {
               console.log(err);
             });
@@ -112,7 +123,7 @@ export class Teamphotos {
 presentToast(text) {
   let toast = this.toastCtrl.create({
     message: text,
-    duration: 3000,
+    duration: 5000,
     position: 'top'
   });
   toast.present();
@@ -127,30 +138,8 @@ presentToast(text) {
   });
 }
 
-  uploadImage() {
-  // Destination URL
-  var url = "https://ri-admin.azurewebsites.net/indonesianrugby/photos/upload.json";
-  // File for Upload
-  this.path = 'asd';
-  this.path = cordova.file.dataDirectory + this.base64Image;
-  console.log(this.path);
-  // File name only
-  var filename = this.lastImage;
 
-  var options = {
-    fileKey: "file",
-    fileName: filename,
-    chunkedMode: false,
-    mimeType: "multipart/form-data",
-    params : {'fileName': filename}
-  };
-  const fileTransfer = new Transfer();
-
-  // Use the FileTransfer to upload the image
-  fileTransfer.upload(this.path, url, options).then(data => {
-    this.presentToast('Image succesful uploaded.');
-  }, err => {
-    this.presentToast('Error while uploading file.');
-  });
-}
+  moveEdit(){
+    this.navi.setRoot(Editphotos);
+  }
 }
