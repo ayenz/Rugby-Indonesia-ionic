@@ -1,13 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
 import { News } from '../pages/news/news';
 import { Fixtures } from '../pages/fixtures/fixtures';
 import { Teamphotos } from '../pages/teamphotos/teamphotos';
 import { Rugby101 } from '../pages/rugby101/rugby101';
 import { Rugbyclubs } from '../pages/rugbyclubs/rugbyclubs';
-import { Deeplinks } from 'ionic-native';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,14 +29,6 @@ export class MyApp {
       { title: 'Rugby Clubs', component: Rugbyclubs , icon: 'people'}
     ];
 
-    Deeplinks.route({
-    '/home' : News
-    }).subscribe((match) => {
-    console.log('Successfully matched route', match);
-  }, (nomatch) => {
-    console.error('Got a deeplink that didn\'t match', nomatch);
-  });
-
 
   }
 
@@ -51,8 +41,9 @@ export class MyApp {
     });
   }
 
-  home(){
+	home(){
     		this.nav.setRoot(News);
+	}
 
   openPage(page) {
     // Reset the content nav to have just this page
