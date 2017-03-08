@@ -26,12 +26,10 @@
 
 
     <!-- Pull Content Image -->
-    <ion-row wrap>
+    <ion-row>
       <ion-col width-50 *ngFor="let post of jsonItems?.data">
         <ion-card>
-		      <ion-item>
-			      <img [src]="post"/>
-		      </ion-item>
+			     <img [src]="post"/>
 	      </ion-card>
       </ion-col>
     </ion-row>
