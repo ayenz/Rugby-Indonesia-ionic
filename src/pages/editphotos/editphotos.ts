@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, Nav, NavParams, ToastController, Loading, LoadingController } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Teamphotos } from '../../pages/teamphotos/teamphotos';
 
 /*
@@ -17,7 +17,7 @@ declare var cordova:any;
 export class Editphotos {
   @ViewChild('myCanvas') myCanvas:ElementRef;
   base64Image:string;
-  dataURL:string = null;
+  dataURL:string = 'asd';
   frame:string;
   loading:Loading;
   path:string;
@@ -27,7 +27,11 @@ export class Editphotos {
   navi:any;
 
   constructor(public http:Http, public navCtrl: NavController, public navParams: NavParams, public toastCtrl:ToastController, public loadingCtrl:LoadingController, public nav:Nav) {
-    this.htt=http;
+    //this.htt=http;
+    this.json = 'asd';
+    this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
+    .subscribe(res => this.json = res.json());
+    this.presentToast(JSON.stringify(this.json));
     this.navi = nav;
     this.base64Image = navParams.get('base64');
   }
@@ -37,29 +41,41 @@ export class Editphotos {
   }
 
   uploadImage() {
+    this.presentToast('upload');
   // Destination URL
-  var url = "https://ri-admin.azurewebsites.net/indonesianrugby/photos/upload.json";
+  var url = 'https://ri-admin.azurewebsites.net/indonesianrugby/photos/upload.json';
   // File for Upload
   this.path = '';
-  this.path = cordova.file.dataDirectory + this.base64Image;
+  //this.path = cordova.file.dataDirectory + this.base64Image;
   console.log(this.path);
-  var options = {
-    data:{
-    photo: this.lastImage,
-    userId: "unregistered"
-    }
-  };
+
   //const fileTransfer = new Transfer();
+  var headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
+  var options = new RequestOptions({ headers: headers});
 
   this.loading = this.loadingCtrl.create({
       content: 'Uploading...',
     });
     this.loading.present();
     this.ngAfterViewInit();
-    this.http.post(url, this.dataURL, options).subscribe(res => this.json = res.json());
+    this.dataURL = this.dataURL.replace(/^data:image\/[a-z]+;base64,/, "");
+    var data = {
+      userId: 'frameoo',
+      photo: 'asd=='
+    };
+    var dat = 'userId=asd&photo=' + this.dataURL;
+
+    this.http.post(url, dat, options).subscribe(res => this.json = res.json());
+    console.log('asd' + JSON.stringify(this.json));
+    //this.presentToast(this.json);
+    // while(this.json=='asd'){
+    // }
     this.loading.dismissAll();
+    // this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
+    // .subscribe(res => this.json = res.json());
     this.presentToast(JSON.stringify(this.json));
-    this.moveTeam();
+    //this.moveTeam();
+
 
 
   // // Use the FileTransfer to upload the image
@@ -90,7 +106,8 @@ export class Editphotos {
     };
     base_image.src = this.base64Image;
     this.dataURL = this.myCanvas.nativeElement.toDataURL();
-    //this.presentToast(frameoo.src);
+    this.presentToast(JSON.stringify(this.json));
+    //this.presentToast(this.base64Image);
   }
 
   selectFrame(frame:string){
