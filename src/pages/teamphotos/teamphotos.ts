@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController, NavController, ToastController, LoadingController, Loading, Nav } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { Camera, File, Transfer, FilePath } from 'ionic-native';
+import { Camera, File} from 'ionic-native';
 import { Editphotos } from '../editphotos/editphotos';
 
 declare var cordova:any;
