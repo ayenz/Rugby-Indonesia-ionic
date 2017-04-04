@@ -1,16 +1,19 @@
 # ionicRugbyV2
-Menggunakan framework ionic versi 2. Jangan samain framework versi 1 karena uda beda struktur folder sama file
+Menggunakan framework ionic versi 2.
+Untuk versi iOS silahkan menuju ke halaman https://github.com/ayenz/iosIonicRugbyV2
 
 ## Setup Project
 
-Download zip project: http://xxx.xxx.xxx/
+Clone projek terlebih dahulu
 Install terlebih dahulu ionic
 ```
 npm install -g cordova ionic
 ```
+Jika telah install cordova dan ionic pada komputer, maka kita bisa melewati langkah diatas.
+
 Rebuild project
 ```
-npm rebuild node-sass
+npm install
 ```
 
 ## Running Project
@@ -23,13 +26,6 @@ ionic serve
 Add platform android at project folder
 ```
 $ cordova platform add android
-```
-Add ionic plugin to project folder
-```
-$ ionic plugin add cordova-plugin-camera
-$ ionic plugin add cordova-plugin-file
-$ ionic plugin add cordova-plugin-file-transfer
-$ ionic plugin add cordova-plugin-filepath
 ```
 Run on android device
 ```
