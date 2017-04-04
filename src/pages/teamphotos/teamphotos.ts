@@ -65,6 +65,7 @@ export class Teamphotos {
               this.base64Image = 'data:image/jpeg;base64,' + imageData;
               this.lastImage = this.base64Image;
               this.navCtrl.push(Editphotos, {base64: this.lastImage});
+              //this.moveEdit();
               //this.uploadImage();
             }, (err) => {
               console.log(err);
@@ -92,13 +93,13 @@ export class Teamphotos {
           handler: () => {
             Camera.getPicture({
               quality: 50,
-              			destinationType: Camera.DestinationType.FILE_URI,
+              			destinationType: Camera.DestinationType.DATA_URL,
               			sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-              targetWidth: 800,
-              targetHeight: 800
+              targetWidth: 400,
+              targetHeight: 400
             }).then((imageData) => {
               this.base64Image = 'data:image/png;base64,' + imageData;
-              this.lastImage = cordova.file.dataDirectory + this.base64Image;
+              this.lastImage = this.base64Image;
               this.navCtrl.push(Editphotos, {base64: this.lastImage});
             }, (err) => {
               console.log(err);
@@ -116,7 +117,6 @@ export class Teamphotos {
   } else {
     this.path = 'asd';
     this.path = cordova.file.dataDirectory + img;
-    this.presentToast(this.path);
   }
 }
 
