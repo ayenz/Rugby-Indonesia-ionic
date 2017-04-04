@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { News } from '../news/news';
-import { Deeplinks } from 'ionic-native';
 
 @Component({
   selector: 'page-rugby101',
