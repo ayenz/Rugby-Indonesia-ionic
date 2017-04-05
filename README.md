@@ -27,8 +27,13 @@ $ cordova platform add android
 ```
 $ cordova run android --device
 ```
-5. Hope you like it :)
+5. Hope you liked it :)
 
+## Running Project on Desktop Browser
+Run this following command on project folder
+```
+$ ionic serve
+```
 ## Our Crew
 1.  [Ayenz](https://github.com/ayenz/)
 2.  [stanleyhanes](https://github.com/stanleyhanes)
