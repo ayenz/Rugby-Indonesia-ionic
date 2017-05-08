@@ -32,13 +32,11 @@ export class Teamphotos {
     console.log(this.jsonItems);
   }
 
-
-
   openCamera() {
-  console.log(cordova.file);
+    console.log(cordova.file);
     let confirm = this.alerCtrl.create({
       title: 'Use this Camera?',
-      message: 'Do you agree to use this Camera to take a teammate photos?',
+      message: 'Do you agree to use this Camera to take a photo?',
       buttons: [
         {
           text: 'Disagree',
@@ -80,7 +78,7 @@ export class Teamphotos {
   useGallery() {
     let confirm = this.alerCtrl.create({
       title: 'Upload from gallery?',
-      message: 'Do you agree to use gallery to upload your photos?',
+      message: 'Do you agree to use gallery to upload your photo?',
       buttons: [
         {
           text: 'Disagree',
@@ -93,8 +91,8 @@ export class Teamphotos {
           handler: () => {
             Camera.getPicture({
               quality: 50,
-              			destinationType: Camera.DestinationType.DATA_URL,
-              			sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+              destinationType: Camera.DestinationType.DATA_URL,
+              sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
               targetWidth: 400,
               targetHeight: 400
             }).then((imageData) => {
@@ -105,39 +103,37 @@ export class Teamphotos {
               console.log(err);
             });
           }
-          }
+        }
       ]
     });
     confirm.present()
   }
 
   pathForImage(img) {
-  if (img === null) {
-
-  } else {
-    this.path = 'asd';
-    this.path = cordova.file.dataDirectory + img;
+    if (img === null) {
+        //do nothing
+    } else {
+      this.path = 'asd';
+      this.path = cordova.file.dataDirectory + img;
+    }
   }
-}
 
-presentToast(text) {
-  let toast = this.toastCtrl.create({
-    message: text,
-    duration: 5000,
-    position: 'top'
-  });
-  toast.present();
-}
-
+  presentToast(text) {
+    let toast = this.toastCtrl.create({
+      message: text,
+      duration: 5000,
+      position: 'top'
+    });
+    toast.present();
+  }
 
   copyFileToLocalDir(namePath, currentName, base64Image) {
-  File.copyFile(namePath, currentName, cordova.file.dataDirectory, base64Image).then(success => {
-    this.lastImage = base64Image;
-  }, error => {
-    this.presentToast('Error while storing file.');
-  });
-}
-
+    File.copyFile(namePath, currentName, cordova.file.dataDirectory, base64Image).then(success => {
+      this.lastImage = base64Image;
+    }, error => {
+      this.presentToast('Error while storing file.');
+    });
+  }
 
   moveEdit(){
     this.navi.setRoot(Editphotos);
