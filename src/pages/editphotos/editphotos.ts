@@ -16,6 +16,8 @@ declare var cordova:any;
 })
 export class Editphotos {
   @ViewChild('myCanvas') myCanvas:ElementRef;
+  @ViewChild('myCanvas1') myCanvas1:ElementRef;
+dataURL1:string = 'asd';
   base64Image:string;
   dataURL:string = 'asd';
   frame:string;
@@ -47,7 +49,6 @@ export class Editphotos {
     this.ngAfterViewInit();
     this.dataURL = this.dataURL.replace(/^data:image\/[a-z]+;base64,/, "");
     var dat = 'userId=frameoo&photo=' + this.dataURL;
-
     this.http.post(url, dat, options).subscribe(res => {
       this.json = res.json()
       if(this.json.status="ok"){
@@ -57,17 +58,26 @@ export class Editphotos {
     });
   }
 
-  ngAfterViewInit() { // wait for the view to init before using the element
+  ngAfterViewInit() {
     let context: CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext("2d");
+    let context1: CanvasRenderingContext2D = this.myCanvas1.nativeElement.getContext("2d");
     let base_image = new Image();
+    let base_image1 = new Image();
     let frameoo = new Image();
     frameoo.src = this.frame;
     base_image.onload = function(){
-      context.drawImage(base_image, 0, 0, 400, 400);
-      context.drawImage(frameoo, 0, 0);
+      context.drawImage(base_image, 0, 0, 327, 400);
+      context.drawImage(frameoo, 0, 0, 327, 400);
+    };
+
+    base_image1.onload = function(){
+      context1.drawImage(base_image, 0, 0, 400, 400);
+      context1.drawImage(frameoo, 0, 0, 400, 400);
     };
     base_image.src = this.base64Image;
-    this.dataURL = this.myCanvas.nativeElement.toDataURL();
+    base_image1.src = this.base64Image;
+    this.dataURL = this.myCanvas1.nativeElement.toDataURL();
+    this.dataURL1 = this.myCanvas.nativeElement.toDataURL();
   }
 
   selectFrame(frame:string){
