@@ -49,7 +49,7 @@ openCamera() {
         handler: () => {
           //  console.log('Agree clicked
           Camera.getPicture({
-            quality: 50,
+            quality: 100,
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.CAMERA,
             encodingType: Camera.EncodingType.JPEG,
