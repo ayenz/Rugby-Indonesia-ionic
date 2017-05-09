@@ -1,13 +1,13 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, Nav, NavParams, ToastController, Loading, LoadingController } from 'ionic-angular';
+import { NavController, Nav, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Teamphotos } from '../../pages/teamphotos/teamphotos';
 
 /*
-  Generated class for the Editphotos page.
+Generated class for the Editphotos page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+See http://ionicframework.com/docs/v2/components/#navigation for more info on
+Ionic pages and navigation.
 */
 declare var cordova:any;
 @Component({
@@ -26,11 +26,7 @@ export class Editphotos {
   htt:Http;
   navi:any;
 
-  constructor(public http:Http, public navCtrl: NavController, public navParams: NavParams, public toastCtrl:ToastController, public loadingCtrl:LoadingController, public nav:Nav) {
-    this.json = 'asd';
-    this.http.get('https://ri-admin.azurewebsites.net/indonesianrugby/photos/list.json')
-    .subscribe(res => this.json = res.json());
-    //this.presentToast(JSON.stringify(this.json));
+  constructor(public http:Http, public navCtrl: NavController, public navParams: NavParams, public loadingCtrl:LoadingController, public nav:Nav) {
     this.navi = nav;
     this.base64Image = navParams.get('base64');
   }
@@ -40,15 +36,7 @@ export class Editphotos {
   }
 
   uploadImage() {
-    //this.presentToast('upload');
-  // Destination URL
     var url = 'https://ri-admin.azurewebsites.net/indonesianrugby/photos/upload.json';
-  // File for Upload
-    this.path = '';
-  //this.path = cordova.file.dataDirectory + this.base64Image;
-    console.log(this.path);
-
-  //const fileTransfer = new Transfer();
     var headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
     var options = new RequestOptions({headers: headers});
 
@@ -60,31 +48,17 @@ export class Editphotos {
     this.dataURL = this.dataURL.replace(/^data:image\/[a-z]+;base64,/, "");
     var dat = 'userId=frameoo&photo=' + this.dataURL;
 
-    this.http.post(url, dat, options).subscribe(res => this.json = res.json());
-    console.log('asd' + JSON.stringify(this.json));
-    this.loading.dismissAll();
-    this.moveTeam();
-
-
-  // // Use the FileTransfer to upload the image
-  // fileTransfer.upload(this.base64Image, url, options, true).then(data => {
-  //   this.loading.dismissAll()
-  //   this.presentToast('Image succesful uploaded.');
-  // }, err => {
-  //   this.loading.dismissAll()
-  //   this.presentToast("ERROR " + JSON.stringify(err));
-  //
-  // });
-
-
+    this.http.post(url, dat, options).subscribe(res => {
+      this.json = res.json()
+      if(this.json.status="ok"){
+        this.loading.dismissAll();
+        this.moveTeam();
+      }
+    });
   }
-
 
   ngAfterViewInit() { // wait for the view to init before using the element
     let context: CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext("2d");
-    // happy drawing from here on
-    // context.fillStyle = 'blue';
-    // context.fillRect(10, 10, 150, 150);
     let base_image = new Image();
     let frameoo = new Image();
     frameoo.src = this.frame;
@@ -94,8 +68,6 @@ export class Editphotos {
     };
     base_image.src = this.base64Image;
     this.dataURL = this.myCanvas.nativeElement.toDataURL();
-    //this.presentToast(JSON.stringify(this.json));
-    //this.presentToast(this.base64Image);
   }
 
   selectFrame(frame:string){
@@ -141,17 +113,7 @@ export class Editphotos {
     }
   }
 
-  presentToast(text) {
-    let toast = this.toastCtrl.create({
-      message: text,
-      duration: 5000,
-      position: 'top'
-    });
-    toast.present();
-  }
-
   moveTeam(){
     this.navi.setRoot(Teamphotos);
   }
-
 }

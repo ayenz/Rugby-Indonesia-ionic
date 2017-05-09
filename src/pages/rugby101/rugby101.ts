@@ -10,5 +10,4 @@ export class Rugby101 {
   constructor() {
 
   }
-
 }
