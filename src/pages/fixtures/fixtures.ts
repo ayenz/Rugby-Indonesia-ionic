@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Loading, LoadingController } from 'ionic-angular';
-import { Http, Response} from '@angular/http';
+import { Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 declare var cordova:any;

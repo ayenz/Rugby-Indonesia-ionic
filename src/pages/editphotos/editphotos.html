@@ -2,13 +2,10 @@
   <ion-navbar>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
   <img src="assets/img/sub-header-photo.png" width="100%">
   <ion-item><canvas #myCanvas class="myCanvas" width="400" height="400"></canvas></ion-item>
-
     <ion-grid>
-
         <ion-row>
             <ion-col>
               <img src="assets/img/frame01.png" alt="" (click)="selectFrame('frame01')">
@@ -26,8 +23,6 @@
                 <img src="assets/img/frame05.png" alt="" (click)="selectFrame('frame05')">
             </ion-col>
         </ion-row>
-
-
         <ion-row>
           <ion-col>
             <img src="assets/img/frame06.png" alt="" (click)="selectFrame('frame06')">
@@ -52,7 +47,7 @@
             </button>
         </ion-row>
         <ion-row>
-            <button color ="secondary"  class="button button-full button-positive" ion-button icon-only>
+            <button (click)="shareImage()" color ="secondary"  class="button button-full button-positive" ion-button icon-only>
               <ion-icon name="share"></ion-icon>
               Share
             </button>
