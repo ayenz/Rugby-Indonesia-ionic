@@ -1,7 +1,7 @@
-# ionicRugbyV2
+# Rugby Indonesia
 Aplikasi Rugby Indonesia (Android)
 Menggunakan framework ionic versi 2.
-Untuk versi iOS silahkan menuju ke halaman https://github.com/ayenz/iosIonicRugbyV2
+Untuk versi iOS silahkan menuju ke halaman https://github.com/ayenz/Rugby-Indonesia-ionic-ios
 
 ## Project Requirement
 
